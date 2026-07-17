@@ -290,7 +290,7 @@ These are community scripts and are not affiliated with or supported by Unraid o
 
 ## License
 
-No license has been selected yet. Add a license before encouraging redistribution or accepting contributions.
+Licensed under the [MIT License](LICENSE).
 
 ## References
 
