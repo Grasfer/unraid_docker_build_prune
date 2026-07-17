@@ -1,0 +1,11 @@
+[Unit]
+Description=Prune old unused Docker build cache
+Documentation=https://github.com/Grasfer/unraid_docker_build_prune
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+Environment=CACHE_MAX_AGE=168h
+Environment=LOG_DIR=/var/log/docker-build-prune
+ExecStart=/usr/local/sbin/docker-build-prune
