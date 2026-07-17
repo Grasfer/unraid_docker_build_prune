@@ -9,7 +9,7 @@ Docker build cache can accumulate on any host that performs image builds, includ
 | Script | Intended system | Storage reporting |
 | --- | --- | --- |
 | [`unraid_docker_build_prune.sh`](unraid_docker_build_prune.sh) | Unraid with its standard Docker layout | Checks `/var/lib/docker`, which is commonly backed by `docker.img` |
-| [`docker_build_prune_linux.sh`](docker_build_prune_linux.sh) | Linux Docker hosts, including rootful and rootless installations | Discovers Docker's data root and reports its filesystem when the daemon is local |
+| [`linux_docker_build_prune.sh`](linux_docker_build_prune.sh) | Linux Docker hosts, including rootful and rootless installations | Discovers Docker's data root and reports its filesystem when the daemon is local |
 
 Both scripts:
 
@@ -88,18 +88,18 @@ Download the Linux script without executing it automatically:
 
 ```bash
 curl --fail --silent --show-error \
-    --output /tmp/docker_build_prune_linux.sh \
-    https://raw.githubusercontent.com/Grasfer/unraid_docker_build_prune/main/docker_build_prune_linux.sh
+    --output /tmp/linux_docker_build_prune.sh \
+    https://raw.githubusercontent.com/Grasfer/unraid_docker_build_prune/main/linux_docker_build_prune.sh
 
-less /tmp/docker_build_prune_linux.sh
-bash -n /tmp/docker_build_prune_linux.sh
+less /tmp/linux_docker_build_prune.sh
+bash -n /tmp/linux_docker_build_prune.sh
 ```
 
 Install it system-wide after reviewing it:
 
 ```bash
 sudo install -m 0755 \
-    /tmp/docker_build_prune_linux.sh \
+    /tmp/linux_docker_build_prune.sh \
     /usr/local/sbin/docker-build-prune
 ```
 
